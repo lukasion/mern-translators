@@ -31,7 +31,21 @@ git clone https://github.com/lukasion/MERN-Translators.git
 cd MERN-Translators
 npm install
 ```
-
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for MERN Translators",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0"
+  }
+}
 ## Usage
 
 To start the server and client at the same time (from the root of the project):
