@@ -1,0 +1,15 @@
+{
+  "ext": "js,json,ts",
+  "watch": [
+    "src"
+  ],
+  "ignore": [
+    "node_modules/**/node_modules"
+  ],
+  "exec": "node ./src/server.js",
+  "verbose": true,
+  "legacyWatch": true,
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

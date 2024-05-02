@@ -8,11 +8,15 @@ services:
     build: ./server
     ports:
       - '5000:5000'
+    volumes:
+      - ./server:/usr/src/app
     depends_on:
       - db
   client:
     build: ./client
     ports:
       - '3000:3000'
+    volumes:
+      - ./client:/app
     depends_on:
       - server
