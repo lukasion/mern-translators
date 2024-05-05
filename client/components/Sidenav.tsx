@@ -38,7 +38,7 @@ const Sidenav = () => {
             <Listbox
                 aria-label="User Menu"
                 // onAction={(key) => alert(key)}
-                className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 max-w-[300px] overflow-visible"
+                className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 max-w-[180px] overflow-visible"
                 itemClasses={{
                     base: 'px-6 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 data-[hover=true]:text-primary/80',
                 }}
