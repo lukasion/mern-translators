@@ -4,6 +4,7 @@ import {useState} from "react";
 import '@/styles/globals.css'
 import {Checkbox, NextUIProvider} from "@nextui-org/react";
 import Sidenav from "@/components/Sidenav";
+import AppContainer from "@/components/AppContainer";
 
 export default function Home() {
     const [response, setResponse] = useState('');
@@ -16,9 +17,10 @@ export default function Home() {
 
     return (
         <NextUIProvider>
-            <main className="flex min-h-screen flex-col items-center justify-center gap-5 p-24">
-                test
+            <main className="flex min-h-screen w-full gap-5">
                 <Sidenav/>
+                
+                <AppContainer/>
             </main>
         </NextUIProvider>
     );

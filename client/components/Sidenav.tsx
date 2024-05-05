@@ -3,6 +3,7 @@
 import {Listbox, ListboxItem, ListboxSection} from '@nextui-org/react'
 import React from 'react'
 import {usePathname} from 'next/navigation'
+import DashboardIcon from "@/components/Icons/Dashboard";
 
 const Sidenav = () => {
     const pathname = usePathname()
@@ -28,13 +29,13 @@ const Sidenav = () => {
     }
 
     return (
-        <aside className="hidden lg:block w-64 p-4 h-screen fixed top-16">
+        <aside className="hidden lg:block w-64 h-screen fixed">
             <Listbox
                 aria-label="User Menu"
                 // onAction={(key) => alert(key)}
                 className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 bg-content1 max-w-[300px] overflow-visible shadow-small rounded-medium"
                 itemClasses={{
-                    base: 'px-3 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 data-[hover=true]:text-primary/80',
+                    base: 'px-6 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 data-[hover=true]:text-primary/80',
                 }}
             >
                 <ListboxSection showDivider>
@@ -42,9 +43,13 @@ const Sidenav = () => {
                         <ListboxItem
                             key={item.href}
                             href={item.href}
-                            className={isActive(item.href) ? 'text-primary/90' : ''}
+                            className={`${isActive(item.href) ? 'text-primary/90' : ''}`}
                         >
-                            {item.label}
+                            <div className={'flex items-center gap-3'}>
+                                <DashboardIcon/>
+
+                                {item.label}
+                            </div>
                         </ListboxItem>
                     ))}
                 </ListboxSection>
