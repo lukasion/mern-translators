@@ -4,16 +4,20 @@ import {Listbox, ListboxItem, ListboxSection} from '@nextui-org/react'
 import React from 'react'
 import {usePathname} from 'next/navigation'
 import DashboardIcon from "@/components/Icons/Dashboard";
+import UserIcon from "@/components/Icons/User";
+import OrdersIcon from "@/components/Icons/Orders";
+import SettingsIcon from "@/components/Icons/Settings";
+import LogoutIcon from "@/components/Icons/Logout";
 
 const Sidenav = () => {
     const pathname = usePathname()
 
     const navMenuItems = [
-        {label: 'Panel', href: '/'},
-        {label: 'Zlecenia', href: '/orders'},
-        {label: 'Użytkownicy', href: '/users'},
-        {label: 'Ustawienia', href: '/settings'},
-        {label: 'Kalendarz', href: '/calendar'},
+        {label: 'Panel', href: '/', icon: <DashboardIcon/>},
+        {label: 'Zlecenia', href: '/orders', icon: <OrdersIcon/>},
+        {label: 'Użytkownicy', href: '/users', icon: <UserIcon/>},
+        {label: 'Ustawienia', href: '/settings', icon: <SettingsIcon/>},
+        {label: 'Kalendarz', href: '/calendar', icon: <DashboardIcon/>},
     ]
 
     const isActive = (href: string) => {
@@ -28,26 +32,26 @@ const Sidenav = () => {
         return pathname.includes(href)
     }
 
+    // @ts-ignore
     return (
         <aside className="hidden lg:block w-64 h-screen fixed">
             <Listbox
                 aria-label="User Menu"
                 // onAction={(key) => alert(key)}
-                className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 bg-content1 max-w-[300px] overflow-visible shadow-small rounded-medium"
+                className="p-0 gap-0 divide-y divide-default-300/50 dark:divide-default-100/80 max-w-[300px] overflow-visible"
                 itemClasses={{
                     base: 'px-6 first:rounded-t-medium last:rounded-b-medium rounded-none gap-3 h-12 data-[hover=true]:bg-default-100/80 data-[hover=true]:text-primary/80',
                 }}
             >
                 <ListboxSection showDivider>
-                    {navMenuItems.slice(0, 4).map((item) => (
+                    {navMenuItems.map((item) => (
                         <ListboxItem
-                            key={item.href}
+                            key={item.label}
                             href={item.href}
                             className={`${isActive(item.href) ? 'text-primary/90' : ''}`}
                         >
                             <div className={'flex items-center gap-3'}>
-                                <DashboardIcon/>
-
+                                {item.icon}
                                 {item.label}
                             </div>
                         </ListboxItem>
@@ -58,7 +62,10 @@ const Sidenav = () => {
                         key='logout'
                         href='/logout'
                     >
-                        Wyloguj się
+                        <div className={'flex items-center gap-3'}>
+                            <LogoutIcon/>
+                            Wyloguj się
+                        </div>
                     </ListboxItem>
                 </ListboxSection>
             </Listbox>
